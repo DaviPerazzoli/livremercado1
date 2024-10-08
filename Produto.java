@@ -22,7 +22,6 @@ class Produto {
         this.marca = marca;
         this.preco = preco;
         this.categoria = categoria;
-        categoria.adicioneProduto(this);
     }
 
     public String getNome() {

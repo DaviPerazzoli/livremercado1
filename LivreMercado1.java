@@ -27,6 +27,12 @@ public class LivreMercado1 {
         Produto prod2 = new Produto("2", "2", "3",2, cat2);
         Produto prod3 = new Produto("3", "2", "3",2, cat3);
         Produto prod4 = new Produto("4", "2", "3",2, cat4);
+        
+        cat1.adicioneProduto(prod1);
+        cat2.adicioneProduto(prod2);
+        cat3.adicioneProduto(prod3);
+        cat4.adicioneProduto(prod4);
+        
         System.out.println("cat1 prods:");
 
         cat1.getProdutos().forEach(p -> System.out.println(p.getNome() + " " + p.getCategoria().getNome()));
