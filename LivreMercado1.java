@@ -44,7 +44,18 @@ public class LivreMercado1 {
         cat3.getProdutos().forEach(p -> System.out.println(p.getNome() + " " + p.getCategoria().getNome()));
         System.out.println("cat1 prods:");
         cat1.getProdutos().forEach(p -> System.out.println(p.getNome() + " " + p.getCategoria().getNome()));
-
-    }
+        
+        
+        System.out.println("Subcategorias de cada categoria:");
+        
+        System.out.println("cat1 cats:");
+        cat1.getSubcategorias().forEach(p -> System.out.println(p.getNome()));
+        System.out.println("cat2 cats:");
+        cat2.getSubcategorias().forEach(p -> System.out.println(p.getNome()));
+        System.out.println("cat3 cats:");
+        cat3.getSubcategorias().forEach(p -> System.out.println(p.getNome()));
+        System.out.println("cat4 cats:");
+        cat4.getSubcategorias().forEach(p -> System.out.println(p.getNome()));
+        }
     
 }

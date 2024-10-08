@@ -59,7 +59,9 @@ public class Categoria {
             }
             subcategoria.produtos.clear();
             
-            subcategorias.addAll(subcategoria.subcategorias);
+            for(Categoria subsubcategoria : subcategoria.subcategorias) {
+                subcategorias.add(subsubcategoria);
+            }
             subcategoria.subcategorias.clear();
         }
         
