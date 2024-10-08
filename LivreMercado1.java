@@ -15,9 +15,9 @@ public class LivreMercado1 {
      */
     public static void main(String[] args) {
         Categoria cat1 = new Categoria("cat1");
-        Categoria cat2 = new Categoria("cat1");
-        Categoria cat3 = new Categoria("cat1");
-        Categoria cat4 = new Categoria("cat1");
+        Categoria cat2 = new Categoria("cat2");
+        Categoria cat3 = new Categoria("cat3");
+        Categoria cat4 = new Categoria("cat4");
         
         cat1.adicioneSubcategoria(cat3);
         cat3.adicioneSubcategoria(cat4);
@@ -36,6 +36,17 @@ public class LivreMercado1 {
         cat3.getProdutos().forEach(p -> System.out.println(p.getNome() + " " + p.getCategoria().getNome()));
         System.out.println("cat4 prods:");
         cat4.getProdutos().forEach(p -> System.out.println(p.getNome() + " " + p.getCategoria().getNome()));
+        
+        System.out.println("Subcategorias de cada categoria:");
+        
+        System.out.println("cat1 cats:");
+        cat1.getSubcategorias().forEach(p -> System.out.println(p.getNome()));
+        System.out.println("cat2 cats:");
+        cat2.getSubcategorias().forEach(p -> System.out.println(p.getNome()));
+        System.out.println("cat3 cats:");
+        cat3.getSubcategorias().forEach(p -> System.out.println(p.getNome()));
+        System.out.println("cat4 cats:");
+        cat4.getSubcategorias().forEach(p -> System.out.println(p.getNome()));
         
         cat1.removaSubcategoria(cat3, true);
         System.out.println("Removendo subcategoria 3 da 1...");
