@@ -23,6 +23,11 @@ class Comprador extends Pessoa{
         Formas de pagamento
             - Pedidos tem que ser pagos pelo cliente ao vendedor.
             - Transferência, PIX, MercadoPago, cartão, boleto, etc.
+    
+        Histórico de pedidos
+            
+        Pesquisa por produtos similares
+        Ordenar produtos por preço, quantidade, vendedor.
     */
     public void efetuarCompra() {
         for (ItemCompra item : carrinho.getItens()) {
