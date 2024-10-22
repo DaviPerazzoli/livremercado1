@@ -31,7 +31,8 @@ class Comprador extends Pessoa{
     
         Avisar o comprador quando um produto de interesse voltar ao estoque
         
-        A efetivação da compra passa por diferentes etapas.
+        A efetivação da compra passa por diferentes etapas (ou estados).
+            -Avaliando pagamento, em preparação, em transito, entregue, finalizado, perdido, sob reclamação.
     */
     public void efetuarCompra() {
         for (ItemCompra item : carrinho.getItens()) {
