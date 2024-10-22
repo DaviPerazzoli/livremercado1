@@ -1,3 +1,7 @@
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -8,16 +12,19 @@
  *
  * @author Tufic
  */
-class Comprador extends Pessoa{
+class Comprador extends Pessoa implements Observer{
     private Carrinho carrinho = new Carrinho();
+    private List<Event> notificacoes;
     
     public Comprador (String nome){
         super(nome);
+        notificacoes = new ArrayList<>();
     }
     
     public void adicioneAoCarrinho(Produto produto, Vendedor vendedor, int quantidade) {
         carrinho.adicioneItem(produto, vendedor, quantidade);
     }
+    
     
     /*
         Formas de pagamento
@@ -56,5 +63,14 @@ class Comprador extends Pessoa{
     
     public Carrinho getCarrinho() {
         return carrinho;
+    }
+
+    @Override
+    public void update(Event evt) {
+        notificacoes.add(evt);
+    }
+    
+    public void produtoDesejadoDisponivel(ProdutoDisponivel evt){
+        notificacoes.add(evt);
     }
 }
