@@ -19,6 +19,11 @@ class Comprador extends Pessoa{
         carrinho.adicioneItem(produto, vendedor, quantidade);
     }
     
+    /*
+        Formas de pagamento
+            - Pedidos tem que ser pagos pelo cliente ao vendedor.
+            - Transferência, PIX, MercadoPago, cartão, boleto, etc.
+    */
     public void efetuarCompra() {
         for (ItemCompra item : carrinho.getItens()) {
             try {
