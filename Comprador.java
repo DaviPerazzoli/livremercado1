@@ -33,6 +33,9 @@ class Comprador extends Pessoa{
         
         A efetivação da compra passa por diferentes etapas (ou estados).
             -Avaliando pagamento, em preparação, em transito, entregue, finalizado, perdido, sob reclamação.
+            
+        Cliente pode desfazer a inclusão ou exclusão de itens no carrinho.
+        Vendedor pode desfazer ações sobre o estoque.
     */
     public void efetuarCompra() {
         for (ItemCompra item : carrinho.getItens()) {
