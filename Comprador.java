@@ -26,8 +26,12 @@ class Comprador extends Pessoa{
     
         Histórico de pedidos
             
-        Pesquisa por produtos similares
+        Pesquisa por produtos similares, por categoria, por vendedor, por faixa de preço.
         Ordenar produtos por preço, quantidade, vendedor.
+    
+        Avisar o comprador quando um produto de interesse voltar ao estoque
+        
+        A efetivação da compra passa por diferentes etapas.
     */
     public void efetuarCompra() {
         for (ItemCompra item : carrinho.getItens()) {
