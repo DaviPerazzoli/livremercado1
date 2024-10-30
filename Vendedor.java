@@ -13,6 +13,7 @@ class Vendedor extends Pessoa{
     
     public Vendedor(String nome) {
         super(nome);
+        estoque = new Estoque();
     }
     
     public void adicioneProdutoAoEstoque(Produto produto, int quantidade) {

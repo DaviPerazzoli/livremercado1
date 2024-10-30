@@ -5,16 +5,20 @@
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Tufic
  */
 class Carrinho {
-    private ArrayList<ItemCompra> itens;
+    private List<ItemCompra> itens;
+    private CareTaker careTaker;
     
     public Carrinho() {
         itens = new ArrayList<>();
+        careTaker = new CareTaker();
+        saveState();
     }
     
     public void adicioneItem(Produto produto, Vendedor vendedor, int quantidade) throws IllegalArgumentException {
@@ -39,9 +43,11 @@ class Carrinho {
         if (! produtoNoCarrinho) {
             itens.add(new ItemCompra(produto, vendedor, quantidade));
         }
+        
+        saveState();
     }
     
-    public ArrayList<ItemCompra> getItens() {
+    public List<ItemCompra> getItens() {
         return itens;
     }
     
@@ -49,8 +55,29 @@ class Carrinho {
         for (ItemCompra item : itens) {
             if (item.getProduto().equals(produto)) {
                 itens.remove(item);
+                saveState();
                 return;
             }
+        }
+    }
+    
+    public void undo(){
+
+        copyState(careTaker.undo().getState());
+    }
+    
+    public void redo(){
+        copyState(careTaker.redo().getState());
+    }
+    
+    private void saveState(){
+        careTaker.saveState(new Memento(itens));
+    }
+    
+    private void copyState(List<ItemCompra> state){
+        itens.clear();
+        for (ItemCompra item: state){
+            itens.add(item);
         }
     }
 }

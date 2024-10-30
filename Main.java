@@ -14,6 +14,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        /*
         Categoria cat1 = new Categoria("cat1");
         Categoria cat2 = new Categoria("cat2");
         Categoria cat3 = new Categoria("cat3");
@@ -73,6 +74,55 @@ public class Main {
         cat3.getSubcategorias().forEach(p -> System.out.println(p.getNome()));
         System.out.println("cat4 cats:");
         cat4.getSubcategorias().forEach(p -> System.out.println(p.getNome()));
+*/
+        Vendedor vendedor1 = new Vendedor("Lauson");
+        Comprador comprador = new Comprador("Gilberto");
+        Categoria cat1 = new Categoria("cat1");
+        Produto prod1 = new Produto("p1","1","1",1,cat1);
+        Produto prod2 = new Produto("p2","2","2",2,cat1);
+        Produto prod3 = new Produto("p3","3","3",3,cat1);
+        Produto prod4 = new Produto("p4","4","4",4,cat1);
+        
+        vendedor1.adicioneProdutoAoEstoque(prod1, 100);
+        vendedor1.adicioneProdutoAoEstoque(prod2, 100);
+        vendedor1.adicioneProdutoAoEstoque(prod3, 100);
+        vendedor1.adicioneProdutoAoEstoque(prod4, 100);
+        vendedor1.adicioneProdutoAoEstoque(prod1, 100);
+        
+        comprador.adicioneAoCarrinho(prod1, vendedor1, 10);
+        comprador.adicioneAoCarrinho(prod2, vendedor1, 20);
+        comprador.adicioneAoCarrinho(prod3, vendedor1, 30);
+        comprador.adicioneAoCarrinho(prod4, vendedor1, 40);
+        
+        printCarrinho(comprador.getCarrinho());
+        comprador.getCarrinho().undo();
+        printCarrinho(comprador.getCarrinho());
+        comprador.getCarrinho().undo();
+        printCarrinho(comprador.getCarrinho());
+        comprador.getCarrinho().undo();
+        printCarrinho(comprador.getCarrinho());
+        comprador.getCarrinho().undo();
+        printCarrinho(comprador.getCarrinho());
+        
+        comprador.getCarrinho().redo();
+        printCarrinho(comprador.getCarrinho());
+        comprador.getCarrinho().redo();
+        printCarrinho(comprador.getCarrinho());
+        comprador.adicioneAoCarrinho(prod4, vendedor1, 10);
+        comprador.getCarrinho().redo();
+        printCarrinho(comprador.getCarrinho());
+        comprador.getCarrinho().redo();
+        printCarrinho(comprador.getCarrinho());
+        comprador.getCarrinho().redo();
+        printCarrinho(comprador.getCarrinho());
         }
+    
+    public static void printCarrinho(Carrinho carrinho){
+        System.out.println();
+        System.out.println("Carrinho:");
+        
+        for (ItemCompra item : carrinho.getItens())
+           System.out.println("Produto: "+ item.getProduto().getNome() + ", quantidade: "+item.getQuantidade());
+    }
     
 }
