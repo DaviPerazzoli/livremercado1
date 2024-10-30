@@ -115,6 +115,21 @@ public class Main {
         printCarrinho(comprador.getCarrinho());
         comprador.getCarrinho().redo();
         printCarrinho(comprador.getCarrinho());
+        
+        System.out.println("Testando os métodos de pagamento");
+        System.out.println("");
+        
+        Compra compra = new Compra();
+        CartaoCreditoStrategy cartao = new CartaoCreditoStrategy();
+        PixStrategy pix = new PixStrategy();
+        BoletoStrategy boleto = new BoletoStrategy();
+        
+        compra.setPagamentoStrategy(cartao);
+        compra.realizarPagamento(200);
+        compra.setPagamentoStrategy(pix);
+        compra.realizarPagamento(1000);
+        compra.setPagamentoStrategy(boleto);
+        compra.realizarPagamento(850);
         }
     
     public static void printCarrinho(Carrinho carrinho){
