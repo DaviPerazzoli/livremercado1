@@ -14,11 +14,18 @@ public class Mercado {
     private final ArrayList<Categoria> categorias;
     private final ArrayList<Comprador> compradores;
     private final ArrayList<Vendedor> vendedores;
+    private static Mercado instancia;
     
-    public Mercado(){
+    private Mercado(){
         categorias = new ArrayList<>();
         compradores = new ArrayList<>();
         vendedores = new ArrayList<>();
+    }
+    
+    public static Mercado getInstance(){
+        if (instancia == null)
+            instancia = new Mercado();
+        return instancia;
     }
     
     public void adicioneCategoria(Categoria categoria) {
